@@ -22,7 +22,7 @@ with open("state_capitals.csv") as f:
 
 right = 0
 wrong = 0
-def main():
+def main(): #what does this mean?
 	incorrect_answers=[]
 while len(state_capitals_d)>0:
 	choice=random.choice(state_capitals_d.keys())
@@ -34,20 +34,30 @@ while len(state_capitals_d)>0:
 		right += 1
 		print "Correct!\n"
 		del state_capitals_d[choice]
+		#Want to give a point if they spell it wrong but tell them the right way to spell it
 	else:
 		wrong += 1
 		# incorrect_answers.append(choice)
 		print "Close, but no cigar."
 		print "The correct answer is",correct_answer+"."
 		del state_capitals_d[choice]
-	percent_right = float(right/wrong)*100
-if percent_right <=80:
-	print "You missed",wrong,"states.\nThat's only",percent_right,"percent correct. Better luck next time."
-elif percent_wrong<=90:
-	print "You missed",wrong,"states.\nThat's pretty good!"
+
+number_correct = float(right)
+number_incorrect = float(wrong)
+total = number_correct+number_incorrect
+percent_correct = (number_correct/total)*100
+# print float(total)
+# print float(right/total) #WHY WON'T THIS WORK???!?!?
+# percent_right = (right/(right+wrong))*100 #why is my percentage right calc not working?!?!?!
+if percent_correct <=50:
+	print "You missed",wrong,"states.\nThat's only",percent_correct,"percent correct. Maybe you should study a little before you try this again. Better luck next time!"	
+elif percent_correct > 50 or percent_correct<80:
+	print "You only missed",wrong,"states.\nNot bad. Not bad! Keep practicing!"
+elif percent_correct > 80 or percent_correct<100:
+	print "\nYou only missed",wrong,"states.\nSomebody paid attention in school! Maybe next time you'll get them all correct!"
 else:
-	print "You only missed",wrong,"states.\nAmazing!"
-	# print "You missed",len(incorrect_answers),"states.\n"
+	print "You got them all right!\nAmazing!"
+	print "You missed",len(incorrect_answers),"states.\n"
 
 # if incorrect_answers:
 # 	print "Here are the ones that you missed:\n"
