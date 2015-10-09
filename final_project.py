@@ -19,24 +19,27 @@ with open("state_capitals.csv") as f:
 	for line in capitals_list:
 		(key, val) = line.split(",")
 		state_capitals_d[key] = val
-
+count = 0
 right = 0
 wrong = 0
 def main(): #what does this mean?
 	incorrect_answers=[]
-while len(state_capitals_d)>0:
+while len(state_capitals_d)>0 and count<10:
 	choice=random.choice(state_capitals_d.keys())
 	correct_answer=state_capitals_d.get(choice)
-	
+
 	print "What is the capital city of",choice+"?"
 	answer=raw_input("# ")
 	if answer.lower()==correct_answer.lower():
 		right += 1
+		count += 1
 		print "Correct!\n"
 		del state_capitals_d[choice]
 		#Want to give a point if they spell it wrong but tell them the right way to spell it
 	else:
+		# incorrect_answers = [] #NOT WORKING
 		wrong += 1
+		count +=1
 		# incorrect_answers.append(choice)
 		print "Close, but no cigar."
 		print "The correct answer is",correct_answer+"."
@@ -57,20 +60,13 @@ elif percent_correct > 80 or percent_correct<100:
 	print "\nYou only missed",wrong,"states.\nSomebody paid attention in school! Maybe next time you'll get them all correct!"
 else:
 	print "You got them all right!\nAmazing!"
-	print "You missed",len(incorrect_answers),"states.\n"
+# print "Here are the states you missed: "
+# print incorrect_answers
 
 # if incorrect_answers:
 # 	print "Here are the ones that you missed:\n"
 # 	for each in incorrect_answers:
 # 		print each
-# 	else:
-		# print "Perfect!"
 
         
-# response=""
-# while response<>"n":
-#     main()
-#     response=raw_input("\n\nPlay again?(y/n)\n# ")
-
-
 #dictionary.items will give list of items so I can provide the 'value' and ask for the 'key'.
