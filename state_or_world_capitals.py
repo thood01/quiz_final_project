@@ -1,9 +1,10 @@
 print "How well do you know the famous capitals from around the world?"
-print "With this game, you can either test your knowledge of US state capitals or capitals of world countries."
+print "With this game, you can either test your knowledge of US state capitals or capitals of world countries. Have fun!"
 
 import random
 
-option = raw_input("Which do you want to play? Enter 1 for state capitals and 2 for world capitals.\nNOTE: Case doesn't matter in your responses, but a misspelled city will be counted as incorrect. ")
+print "\nNOTE: No abbreviations. Case doesn't matter in your responses, but a misspelled city will be counted as incorrect.\n"
+option = raw_input("Which do you want to play? Enter 1 for state capitals and 2 for world capitals.\n")
 
 if option == "1":
 	import random
@@ -21,11 +22,11 @@ if option == "1":
 	wrong = 0
 	def main(): #what does this mean?
 		incorrect_answers=[]
-	while len(state_capitals_d)>0 and count<10:
+	while len(state_capitals_d)>0 and count<20:
 		choice=random.choice(state_capitals_d.keys())
 		correct_answer=state_capitals_d.get(choice)
 
-		print "What is the capital city of",choice+"?"
+		print "What is the capital city of",choice+"?\n"
 		answer=raw_input("# ")
 		if answer.lower()==correct_answer.lower():
 			right += 1
@@ -37,7 +38,7 @@ if option == "1":
 			
 			wrong += 1
 			count +=1
-			print "Close, but no cigar."
+			print "\nClose, but no cigar."
 			print "The correct answer is",correct_answer+"."
 			del state_capitals_d[choice]
 
@@ -46,15 +47,15 @@ if option == "1":
 	total = number_correct+number_incorrect
 	percent_correct = (number_correct/total)*100
 	
-	if percent_correct <=50:
-		print "You missed",wrong,"states.\nThat's only",percent_correct,"percent correct. Maybe you should study a little before you try this again. Better luck next time!"	
-	elif percent_correct > 50 or percent_correct<80:
-		print "You only missed",wrong,"states.\nNot bad. Not bad! Keep practicing!"
-	elif percent_correct > 80 or percent_correct<100:
-		print "\nYou only missed",wrong,"states.\nSomebody paid attention in school! Maybe next time you'll get them all correct!"
+	if percent_correct == 100:
+		print "WOW! You got them all right!\nAmazing!"
+	elif percent_correct >=90:
+		print "\nYou only missed",wrong,"states. That's",percent_correct,"percent.\nSomebody paid attention in school! Maybe next time you'll get them all correct!"
+	elif percent_correct > 60 or percent_correct<80:
+		print "\nYou only missed",wrong,"states.\nNot bad. Not bad! Keep practicing!"
 	else:
-		print "You got them all right!\nAmazing!"
-
+		print "\nYou missed",wrong,"states.\nThat's only",percent_correct,"percent correct. Maybe you should study a little before you try this again. Better luck next time!"	
+	
 if option == "2":
 	import random
 	world_capitals_d = {}
@@ -68,11 +69,11 @@ if option == "2":
 	wrong = 0
 	def main():
 		incorrect_answers=[]
-	while len(world_capitals_d)>0 and count<10:
+	while len(world_capitals_d)>0 and count<20:
 		choice=random.choice(world_capitals_d.keys())
 		correct_answer=world_capitals_d.get(choice)
 
-		print "What is the capital city of",choice+"?"
+		print "What is the capital city of",choice+"?\n"
 		answer=raw_input("# ")
 		if answer.lower()==correct_answer.lower():
 			right += 1
@@ -84,7 +85,7 @@ if option == "2":
 			
 			wrong += 1
 			count +=1
-			print "Sorry. That's incorrect."
+			print "\nSorry. That's incorrect."
 			print "The correct answer is",correct_answer+"."
 			del world_capitals_d[choice]
 
@@ -93,11 +94,11 @@ if option == "2":
 	total = number_correct+number_incorrect
 	percent_correct = (number_correct/total)*100
 	
-	if percent_correct <=50:
-		print "You missed",wrong,"capitals.\nThat's only",percent_correct,"percent correct. Maybe you should study a little before you try this again. Better luck next time!"	
-	elif percent_correct > 50 or percent_correct<80:
-		print "You only missed",wrong,"capitals.\nNot bad. Not bad! Keep practicing!"
-	elif percent_correct > 80 or percent_correct<100:
-		print "\nYou only missed",wrong,"capitals.\nSomebody paid attention in school! Maybe next time you'll get them all correct!"
+	if percent_correct == 100:
+		print "That's quite a feat!! You got them all right!"
+	elif percent_correct >=90:
+		print "\nYou only missed",wrong,"capitals. That's",percent_correct,".\nSomebody paid attention in school! Maybe next time you'll get them all correct!"
+	elif percent_correct > 60 or percent_correct<80:
+		print "\nYou only missed",wrong,"capitals.\nNot bad. Not bad! Keep practicing!"
 	else:
-		print "You got them all right!\nAmazing!"
+		print "\nYou missed",wrong,"capitals.\nThat's only",percent_correct,"percent correct. Maybe you should study a little before you try this again. Better luck next time!"	
