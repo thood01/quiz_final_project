@@ -1,4 +1,5 @@
-print "How well do you know the famous capitals from around the world?\nWith this game, you can either test your knowledge of US state capitals or capitals of world countries. Have fun!"
+print "How well do you know the famous capitals from around the world?\n"
+print "With this game, you can either test your knowledge of US state capitals or capitals of world countries. Have fun!"
 
 import random
 
