@@ -6,7 +6,6 @@ print "\nNOTE: Do not use abbreviations. Letter case doesn't matter in your resp
 option = raw_input("Which do you want to play? Enter 1 for state capitals and 2 for world capitals.\n")
 
 if option == "1":
-	import random
 
 	state_capitals_d = {}
 
@@ -50,13 +49,13 @@ if option == "1":
 		print "WOW! You got them all right!\nAmazing!"
 	elif percent_correct >=90:
 		print "\nYou only missed",wrong,"states. That's",percent_correct,"percent.\nSomebody paid attention in school! Maybe next time you'll get them all correct!"
-	elif percent_correct > 60 and percent_correct<80:
+	elif percent_correct > 75 and percent_correct<90:
 		print "\nYou only missed",wrong,"states.\nNot bad. Not bad! Keep practicing!"
 	else:
 		print "\nYou missed",wrong,"states.\nThat's only",percent_correct,"percent correct. Maybe you should study a little before you try this again. Better luck next time!"	
 	
 elif option == "2":
-	import random
+
 	world_capitals_d = {}
 	with open("world_capitals.csv") as f:
 		capitals_list = f.readlines()[0].split("\r")
@@ -97,7 +96,7 @@ elif option == "2":
 		print "That's quite a feat!! You got them all right!"
 	elif percent_correct >=90:
 		print "\nYou only missed",wrong,"capitals. That's",percent_correct,".\nSomebody paid attention in school! Maybe next time you'll get them all correct!"
-	elif percent_correct > 60 and percent_correct<80:
+	elif percent_correct > 75 and percent_correct<90:
 		print "\nYou only missed",wrong,"capitals.\nNot bad. Not bad! Keep practicing!"
 	else:
 		print "\nYou missed",wrong,"capitals.\nThat's only",percent_correct,"percent correct. Maybe you should study a little before you try this again. Better luck next time!"
